@@ -1,0 +1,13 @@
+version: '3'
+services:  
+  python-batch:
+    #image: jupyter/minimal-notebook
+    #network_mode: "host"
+    build: .
+    ports: 
+      - "8888:8888"
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: bash -c "jupyter notebook --ip='*' --NotebookApp.token='' --NotebookApp.password='' --allow-root"
+   
